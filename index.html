@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONALD CAPITAL | Institutional Blockchain Investment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <style>
+        /* ===== VARIABLES & RESET ===== */
+        :root {
+            --metal-black: #0d0d0d;
+            --graphite: #1a1a1a;
+            --steel-gray: #2a2a2a;
+            --platinum: #e6e6e6;
+            --pure-white: #ffffff;
+            --metal-accent: #4a4a4a;
+            --light-accent: #f8f9fa;
+            --success: #10b981;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--pure-white);
+            color: var(--metal-black);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4 {
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        /* ===== NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 22px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            color: var(--metal-black);
+            text-decoration: none;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--metal-black);
+            border-radius: 50%;
+            margin-left: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 35px;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--steel-gray);
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 450;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--metal-black);
+        }
+
+        .nav-indicator {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            height: 2px;
+            background: var(--metal-black);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .contact-btn {
+            background: var(--metal-black);
+            color: var(--pure-white) !important;
+            padding: 10px 25px !important;
+            border-radius: 25px;
+            font-weight: 500 !important;
+            margin-left: 30px;
+            transition: var(--transition);
+        }
+
+        .contact-btn:hover {
+            background: var(--steel-gray);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 100px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            overflow: hidden;
+        }
+
+        .hero-bg-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(13, 13, 13, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(13, 13, 13, 0.03) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 950px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            font-weight: 380;
+            margin-bottom: 30px;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-highlight:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(90deg, rgba(13, 13, 13, 0.1), transparent);
+            z-index: -1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            color: var(--steel-gray);
+            font-weight: 350;
+            line-height: 1.7;
+            max-width: 750px;
+            margin-bottom: 50px;
+            padding-left: 25px;
+            border-left: 2px solid var(--platinum);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 350;
+            color: var(--metal-black);
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--steel-gray);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-top: 8px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            padding-top: 12px;
+            width: 180px;
+        }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .products-section {
+            padding: 140px 0;
+            background: var(--pure-white);
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-label {
+            font-size: 12px;
+            color: var(--steel-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 380;
+            color: var(--metal-black);
+            max-width: 700px;
+            line-height: 1.2;
+        }
+
+        .products-filter {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            padding: 10px 22px;
+            background: transparent;
+            border: 1px solid var(--platinum);
+            color: var(--steel-gray);
+            font-size: 13px;
+            letter-spacing: 0.8px;
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 25px;
+            font-weight: 450;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--metal-black);
+            color: var(--pure-white);
+            border-color: var(--metal-black);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 4px;
+            padding: 40px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            background: var(--pure-white);
+        }
+
+        .product-card:hover {
+            border-color: var(--metal-black);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--light-accent);
+            color: var(--steel-gray);
+            font-size: 11px;
+            padding: 5px 12px;
+            border-radius: 12px;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+
+        .product-icon {
+            font-size: 32px;
+            margin-bottom: 25px;
+            color: var(--metal-black);
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .product-desc {
+            color: var(--steel-gray);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 80px;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .product-features li {
+            padding: 8px 0;
+            color: var(--steel-gray);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+            padding-left: 22px;
+        }
+
+        .product-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 500;
+        }
+
+        .product-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .product-minimum {
+            font-size: 12px;
+            color: var(--steel-gray);
+            letter-spacing: 0.5px;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+
+        /* ===== DETAILED FEATURES ===== */
+        .features-detail {
+            padding: 120px 0;
+            background: var(--light-accent);
+        }
+
+        .feature-tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            margin-bottom: 60px;
+            overflow-x: auto;
+        }
+
+        .feature-tab {
+            padding: 18px 30px;
+            background: transparent;
+            border: none;
+            color: var(--steel-gray);
+            font-size: 14px;
+            font-weight: 450;
+            letter-spacing: 0.8px;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .feature-tab.active {
+            color: var(--metal-black);
+        }
+
+        .feature-tab.active:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--metal-black);
+        }
+
+        .feature-content {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feature-content.active {
+            display: block;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        }
+
+        .feature-item {
+            padding: 40px;
+            background: var(--pure-white);
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        /* ===== CHATBOT ===== */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            background: var(--metal-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            border: none;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            background: var(--steel-gray);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 380px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            display: none;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .chatbot-header {
+            background: var(--metal-black);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h3 {
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        .chatbot-messages {
+            height: 350px;
+            overflow-y: auto;
+            padding: 20px;
+            background: #fafafa;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            animation: messageIn 0.3s ease;
+        }
+
+        @keyframes messageIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            max-width: 80%;
+            padding: 12px 18px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .bot .message-content {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            color: var(--metal-black);
+        }
+
+        .user .message-content {
+            background: var(--metal-black);
+            color: white;
+        }
+
+        .chatbot-input {
+            padding: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 12px 18px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .chatbot-input input:focus {
+            border-color: var(--metal-black);
+        }
+
+        .chatbot-send {
+            background: var(--metal-black);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .quick-reply {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 8px 16px;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .quick-reply:hover {
+            background: var(--metal-black);
+            color: white;
+            border-color: var(--metal-black);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--graphite);
+            color: var(--platinum);
+            padding: 100px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr) 1.2fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            letter-spacing: 2.5px;
+            color: var(--pure-white);
+            margin-bottom: 25px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-desc {
+            color: #999;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 280px;
+        }
+
+        .footer-heading {
+            color: var(--pure-white);
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--pure-white);
+            transform: translateX(5px);
+        }
+
+        .footer-contact {
+            color: #999;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 30px;
+            }
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .chatbot-window {
+                width: calc(100vw - 60px);
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                RONALD CAPITAL
+                <span class="logo-dot"></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#strategy">Strategy</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#contact" class="contact-btn">Schedule Call</a></li>
+            </ul>
+            <div class="nav-indicator"></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-pattern"></div>
+        <div class="container hero-content">
+            <h1 class="animate-fade-in">
+                <span class="hero-highlight">Value Driven Investors</span><br>
+                Shaping the Future of<br>
+                Blockchain Innovation
+            </h1>
+            <p class="hero-subtitle animate-fade-in delay-1">
+                We make disciplined, long-term investments in liquid digital assets and venture equity within the blockchain ecosystem. Our approach combines deep technical analysis with fundamental research to identify transformative opportunities.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="stat-value">10+</div>
+                    <div class="stat-label">Specialized Investment Products</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-value">$2.4B</div>
+                    <div class="stat-label">Assets Under Management</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-value">60+</div>
+                    <div class="stat-label">Portfolio Companies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="section-label">Investment Products</span>
+                    <h2 class="section-title">Diversified Portfolio Strategies</h2>
+                </div>
+            </div>
+
+            <div class="products-filter">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="digital">Digital Assets</button>
+                <button class="filter-btn" data-filter="venture">Venture Equity</button>
+                <button class="filter-btn" data-filter="yield">Yield Strategies</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="digital">
+                    <div class="product-badge">Liquid</div>
+                    <div class="product-icon">
+                        <i class="fas fa-bitcoin"></i>
+                    </div>
+                    <h3 class="product-title">Bitcoin Core Strategy</h3>
+                    <p class="product-desc">
+                        Institutional-grade Bitcoin allocation with active treasury management and yield enhancement through covered options strategies.
+                    </p>
+                    <ul class="product-features">
+                        <li>Active rebalancing based on volatility regimes</li>
+                        <li>Yield enhancement through option overlays</li>
+                        <li>Multi-signature cold storage security</li>
+                        <li>Quarterly liquidity windows</li>
+                    </ul>
+                    <div class="product-action">
+                        <div class="product-minimum">Minimum: $250,000</div>
+                        <a href="https://wa.me/15551234567?text=Hi,%20I'm%20interested%20in%20Bitcoin%20Core%20Strategy" 
+                           class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-category="venture">
+                    <div class="product-badge">Early Stage</div>
+                    <div class="product-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="product-title">Protocol Growth Fund</h3>
+                    <p class="product-desc">
+                        Early-stage investments in foundational blockchain protocols with strong network effects and governance token potential.
+                    </p>
+                    <ul class="product-features">
+                        <li>Pre-seed to Series A protocol investments</li>
+                        <li>Active governance participation</li>
+                        <li>Technical due diligence team</li>
+                        <li>5-7 year investment horizon</li>
+                    </ul>
+                    <div class="product-action">
+                        <div class="product-minimum">Minimum: $500,000</div>
+                        <a href="https://wa.me/15551234567?text=Hi,%20I'm%20interested%20in%20Protocol%20Growth%20Fund" 
+                           class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-category="yield">
+                    <div class="product-badge">Yield Bearing</div>
+                    <div class="product-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="product-title">DeFi Yield Aggregator</h3>
+                    <p class="product-desc">
+                        Automated yield optimization across leading DeFi protocols with risk-managed exposure to staking, lending, and liquidity provision.
+                    </p>
+                    <ul class="product-features">
+                        <li>Dynamic protocol allocation algorithm</li>
+                        <li>Smart contract insurance coverage</li>
+                        <li>Daily liquidity redemption</li>
+                        <li>Real-time performance dashboard</li>
+                    </ul>
+                    <div class="product-action">
+                        <div class="product-minimum">Minimum: $100,000</div>
+                        <a href="https://wa.me/15551234567?text=Hi,%20I'm%20interested%20in%20DeFi%20Yield%20Aggregator" 
+                           class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-category="digital">
+                    <div class="product-badge">Multi-Asset</div>
+                    <div class="product-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="product-title">Ethereum Ecosystem Fund</h3>
+                    <p class="product-desc">
+                        Concentrated exposure to Ethereum and its Layer 2 ecosystem, including staking rewards and application token selection.
+                    </p>
+                    <ul class="product-features">
+                        <li>ETH staking with validator operation</li>
+                        <li>Layer 2 governance token exposure</li>
+                        <li>MEV protection strategies</li>
+                        <li>Quarterly rebalancing</li>
+                    </ul>
+                    <div class="product-action">
+                        <div class="product-minimum">Minimum: $200,000</div>
+                        <a href="https://wa.me/15551234567?text=Hi,%20I'm%20interested%20in%20Ethereum%20Ecosystem%20Fund" 
+                           class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card" data-category="venture">
+                    <div class="product-badge">Growth Stage</div>
+                    <div class="product-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="product-title">Infrastructure Ventures</h3>
+                    <p class="product-desc">
+                        Growth-stage investments in blockchain infrastructure companies including data providers, security firms, and developer tools.
+                    </p>
+                    <ul class="product-features">
+                        <li>Series B+ infrastructure investments</li>
+                        <li>Strategic partnership network</li>
+                        <li>Board participation rights</li>
+                        <li>3-5 year exit timeline</li>
+                    </ul>
+                    <div class="product-action">
+                        <div class="product-minimum">Minimum: $1,000,000</div>
+                        <a href="https://wa.me/15551234567?text=Hi,%20I'm%20interested%20in%20Infrastructure%20Ventures" 
+                           class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card" data-category="yield">
+                    <div class="product-badge">Structured</div>
+                    <div class="product-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="product-title">Capital Protected Notes</h3>
+                    <p class="product-desc">
+                        Principal-protected exposure to digital assets with upside participation through structured product engineering.
+                    </p>
+                    <ul class="product-features">
+                        <li>90-100% capital protection</li>
+                        <li>Upside participation up to 2x</li>
+                        <li>Quarterly auto-compounding</li>
+                        <li>12-24 month terms available</li>
+                    </ul>
+                    <div class="product-action">
+                        <div class="product-minimum">Minimum: $500,000</div>
+                        <a href="https://wa.me/15551234567?text=Hi,%20I'm%20interested%20in%20Capital%20Protected%20Notes" 
+                           class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card" data-category="digital">
+                    <div class="product-badge">Thematic</div>
+                    <div class="product-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="product-title">AI + Blockchain Convergence</h3>
+                    <p class="product-desc">
+                        Thematic investment in projects combining artificial intelligence with blockchain technology for next-generation applications.
+                    </p>
+                    <ul class="product-features">
+                        <li>AI-powered DeFi protocols</li>
+                        <li>Decentralized compute networks</li>
+                        <li>Data marketplace platforms</li>
+                        <li>Cross-disciplinary research team</li>
+                    </ul>
+                    <div class="product-action">
+                        <div class="product-minimum">Minimum: $300,000</div>
+                        <a href="https://wa.me/15551234567?text=Hi,%20I'm%20interested%20in%20AI%20+%20Blockchain%20Convergence" 
+                           class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card" data-category="venture">
+                    <div class="product-badge">Sector Focus</div>
+                    <div class="product-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3 class="product-title">DeFi Primitive Fund</h3>
+                    <p class="product-desc">
+                        Investments in decentralized finance building blocks including DEXs, lending protocols, derivatives, and stablecoins.
+                    </p>
+                    <ul class="product-features">
+                        <li>Protocol token investments</li>
+                        <li>Liquidity provisioning strategies</li>
+                        <li>Security audit partnerships</li>
+                        <li>Governance voting delegation</li>
+                    </ul>
+                    <div class="product-action">
+                        <div class="product-minimum">Minimum: $250,000</div>
+                        <a href="https://wa.me/15551234567?text=Hi,%20I'm%20interested%20in%20DeFi%20Primitive%20Fund" 
+                           class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card" data-category="yield">
+                    <div class="product-badge">Liquid Staking</div>
+                    <div class="product-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="product-title">Liquid Staking Derivatives</h3>
+                    <p class="product-desc">
+                        Maximizing yield through liquid staking derivative strategies across multiple proof-of-stake networks.
+                    </p>
+                    <ul class="product-features">
+                        <li>Cross-chain staking optimization</li>
+                        <li>LSD token yield strategies</li>
+                        <li>Validator decentralization focus</li>
+                        <li>Daily compounding</li>
+                    </ul>
+                    <div class="product-action">
+                        <div class="product-minimum">Minimum: $150,000</div>
+                        <a href="https://wa.me/15551234567?text=Hi,%20I'm%20interested%20in%20Liquid%20Staking%20Derivatives" 
+                           class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card" data-category="venture">
+                    <div class="product-badge">Emerging Markets</div>
+                    <div class="product-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="product-title">Emerging Markets Web3</h3>
+                    <p class="product-desc">
+                        Venture investments in Web3 applications targeting emerging markets with high growth potential.
+                    </p>
+                    <ul class="product-features">
+                        <li>Mobile-first blockchain applications</li>
+                        <li>Remittance and payment solutions</li>
+                        <li>Local market expertise</li>
+                        <li>Regulatory navigation support</li>
+                    </ul>
+                    <div class="product-action">
+                        <div class="product-minimum">Minimum: $200,000</div>
+                        <a href="https://wa.me/15551234567?text=Hi,%20I'm%20interested%20in%20Emerging%20Markets%20Web3" 
+                           class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Features -->
+    <section class="features-detail" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="section-label">Investment Framework</span>
+                    <h2 class="section-title">Our Value Creation Process</h2>
+                </div>
+            </div>
+
+            <div class="feature-tabs">
+                <button class="feature-tab active" data-tab="due-diligence">Due Diligence</button>
+                <button class="feature-tab" data-tab="portfolio-construction">Portfolio Construction</button>
+                <button class="feature-tab" data-tab="risk-management">Risk Management</button>
+                <button class="feature-tab" data-tab="value-add">Value Add</button>
+                <button class="feature-tab" data-tab="reporting">Reporting & Transparency</button>
+            </div>
+
+            <div class="feature-content active" id="due-diligence-content">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>Technical Assessment</h4>
+                        <p>Comprehensive review of protocol architecture, smart contract security, and technical roadmap. Our team includes former protocol developers and security auditors.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Team Evaluation</h4>
+                        <p>Deep background checks on founding teams, assessing technical capability, execution history, and alignment of incentives with long-term protocol success.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Tokenomics Analysis</h4>
+                        <p>Rigorous examination of token distribution, inflation schedules, governance mechanisms, and value accrual models across multiple time horizons.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Market Positioning</h4>
+                        <p>Analysis of competitive landscape, total addressable market, network effects potential, and barriers to entry within specific protocol categories.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        <div class="chatbot-window">
+            <div class="chatbot-header">
+                <h3>Investment Assistant</h3>
+                <button class="chatbot-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages">
+                <div class="message bot">
+                    <div class="message-content">
+                        Hello! I'm your investment assistant. How can I help you today?
+                        <div class="quick-replies">
+                            <div class="quick-reply" data-reply="product-info">Product Information</div>
+                            <div class="quick-reply" data-reply="minimum-investment">Minimum Investment</div>
+                            <div class="quick-reply" data-reply="contact-sales">Contact Sales</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Type your message..." id="chatbot-input">
+                <button class="chatbot-send">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">RONALD CAPITAL</a>
+                    <p class="footer-desc">
+                        Institutional investment firm focused on long-term value creation in the blockchain ecosystem through disciplined digital asset allocation and venture equity.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="#products">Digital Assets</a></li>
+                        <li><a href="#products">Venture Equity</a></li>
+                        <li><a href="#products">Yield Strategies</a></li>
+                        <li><a href="#products">All Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Research Reports</a></li>
+                        <li><a href="#">Market Insights</a></li>
+                        <li><a href="#">Investment Framework</a></li>
+                        <li><a href="#">Glossary</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 250 Greenwich St, New York, NY 10007</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> inquiries@ronaldcapital.com</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp: +1 (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Ronald Capital. All rights reserved. This material is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation indicator
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const navIndicator = document.querySelector('.nav-indicator');
+            
+            function updateIndicator(element) {
+                if (!element) return;
+                const width = element.offsetWidth;
+                const left = element.offsetLeft;
+                navIndicator.style.width = `${width}px`;
+                navIndicator.style.left = `${left}px`;
+            }
+            
+            // Set initial indicator position
+            const activeNav = document.querySelector('.nav-links a[href="#products"]');
+            updateIndicator(activeNav);
+            
+            // Product filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter products
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    productCards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || filterValue === category) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Feature tabs
+            const featureTabs = document.querySelectorAll('.feature-tab');
+            const featureContents = document.querySelectorAll('.feature-content');
+            
+            featureTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    featureTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    featureContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    document.getElementById(`${tabId}-content`).classList.add('active');
+                });
+            });
+            
+            // Chatbot functionality
+            const chatbotToggle = document.querySelector('.chatbot-toggle');
+            const chatbotWindow = document.querySelector('.chatbot-window');
+            const chatbotClose = document.querySelector('.chatbot-close');
+            const chatbotSend = document.querySelector('.chatbot-send');
+            const chatbotInput = document.getElementById('chatbot-input');
+            const chatbotMessages = document.querySelector('.chatbot-messages');
+            
+            chatbotToggle.addEventListener('click', function() {
+                chatbotWindow.style.display = 'block';
+                chatbotToggle.style.display = 'none';
+            });
+            
+            chatbotClose.addEventListener('click', function() {
+                chatbotWindow.style.display = 'none';
+                chatbotToggle.style.display = 'flex';
+            });
+            
+            function addMessage(text, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+                
+                const messageContent = document.createElement('div');
+                messageContent.className = 'message-content';
+                messageContent.textContent = text;
+                
+                messageDiv.appendChild(messageContent);
+                chatbotMessages.appendChild(messageDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+            
+            function handleQuickReply(replyType) {
+                const responses = {
+                    'product-info': 'We offer 10 specialized investment products across digital assets, venture equity, and yield strategies. Which category interests you most?',
+                    'minimum-investment': 'Minimum investments range from $100,000 to $1,000,000 depending on the product. Our most accessible product is the DeFi Yield Aggregator at $100,000 minimum.',
+                    'contact-sales': 'I can connect you with our sales team. Please provide your contact information and preferred contact method.'
+                };
+                
+                addMessage(responses[replyType] || 'How else can I assist you?');
+            }
+            
+            // Quick replies
+            document.querySelectorAll('.quick-reply').forEach(reply => {
+                reply.addEventListener('click', function() {
+                    const replyType = this.getAttribute('data-reply');
+                    addMessage(this.textContent, true);
+                    setTimeout(() => handleQuickReply(replyType), 500);
+                });
+            });
+            
+            chatbotSend.addEventListener('click', function() {
+                const message = chatbotInput.value.trim();
+                if (message) {
+                    addMessage(message, true);
+                    chatbotInput.value = '';
+                    
+                    // Simulate bot response
+                    setTimeout(() => {
+                        addMessage('Thank you for your message. Our investment team will review your inquiry and respond promptly. Would you like to schedule a call to discuss specific products?');
+                    }, 1000);
+                }
+            });
+            
+            chatbotInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    chatbotSend.click();
+                }
+            });
+            
+            // Update copyright year
+            document.querySelector('.copyright').textContent = 
+                document.querySelector('.copyright').textContent.replace('2023', new Date().getFullYear());
+            
+            // WhatsApp number configuration
+            const whatsappButtons = document.querySelectorAll('.whatsapp-btn');
+            const whatsappNumber = '15551234567'; // Change this to your actual WhatsApp number
+            
+            whatsappButtons.forEach(button => {
+                const currentHref = button.getAttribute('href');
+                button.setAttribute('href', currentHref.replace('15551234567', whatsappNumber));
+            });
+        });
+    </script>
+</body>
+</html>
